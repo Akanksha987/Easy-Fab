@@ -11,11 +11,14 @@
     "react-scripts": "5.0.1",
     "three": "^0.181.2"
   },
-  "scripts": {
+   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "electron:dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron public/electron.js\"",
+    "electron:build": "npm run build && electron-builder",
+    "build:electron": "npm run build && electron-builder --win --mac --linux"
   },
   "eslintConfig": {
     "extends": [
